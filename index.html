@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendSmartly | College Attendance Tracker & Bunk Calculator</title>
+    <meta name="description" content="The ultimate open-source college attendance management, timetable builder, and safe bunk calculator for Android.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar fade-in">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <img src="assets/logo.png" alt="AttendSmartly Logo" class="nav-logo">
+                <span>AttendSmartly</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#calculator">Bunk Math</a>
+                <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-outline">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero slide-up">
+        <div class="hero-content">
+            <span class="badge">Open Source & Offline-First</span>
+            <h1 class="hero-title">Track classes. <br> Plan bunks. <br> <span class="gradient-text">Attend smartly.</span></h1>
+            <p class="hero-subtitle">The ultimate college attendance management, timetable builder, and safe bunk calculator for Android.</p>
+            <div class="hero-cta">
+                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary">Download APK</a>
+                <a href="#features" class="btn btn-secondary">Explore Features</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper glass">
+            <img src="assets/screenshots/home_dashboard.jpg" alt="AttendSmartly Home Screen" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features section-padding">
+        <div class="section-header fade-in">
+            <h2>Everything a student needs</h2>
+            <p>Designed beautifully using Jetpack Compose and Material Design 3.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">📅</div>
+                <h3>Smart Timetable</h3>
+                <p>Configure recurring daily classes with custom unit values. Real-world college classes aren't always 1 hour long.</p>
+            </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">🎯</div>
+                <h3>Safe Bunk Calculator</h3>
+                <p>Calculates the exact number of upcoming classes you can safely skip while staying above your target percentage.</p>
+            </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">📷</div>
+                <h3>AI OCR Scanner</h3>
+                <p>Powered by Google Gemini Vision. Simply snap a photo of your college timetable to automatically parse and import your schedule.</p>
+            </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">📊</div>
+                <h3>Deep Analytics</h3>
+                <p>Interactive progress cards, subject-wise breakdown chips, and beautiful donut charts to visualize your attendance history.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase section-padding">
+        <div class="section-header fade-in">
+            <h2>Beautifully Crafted</h2>
+            <p>A sleek interface that respects your system's dark and light modes.</p>
+        </div>
+        <div class="showcase-scroll">
+            <img src="assets/screenshots/weekly_timetable.jpg" alt="Timetable" class="showcase-img slide-up">
+            <img src="assets/screenshots/attendance_analytics.jpg" alt="Analytics" class="showcase-img slide-up delay-1">
+            <img src="assets/screenshots/subject_details.jpg" alt="Subject Details" class="showcase-img slide-up delay-2">
+            <img src="assets/screenshots/ai_timetable_scanner.jpg" alt="OCR Scanner" class="showcase-img slide-up delay-3">
+        </div>
+    </section>
+
+    <!-- Bunk Math Section -->
+    <section id="calculator" class="calculator section-padding">
+        <div class="calculator-container glass fade-in">
+            <div class="calc-text">
+                <h2>The Math Behind the Magic</h2>
+                <p>AttendSmartly uses precise formulas to compute your Safe Bunks and Recovery Classes. Cancelled classes are automatically excluded from conducted totals so your percentage remains perfectly accurate.</p>
+                <div class="formula-box">
+                    <strong>Safe Bunks Formula:</strong><br>
+                    <code>Floor( (Present - (Target * Total)) / Target )</code>
+                </div>
+            </div>
+            <div class="calc-image">
+                 <img src="assets/screenshots/subject_wise_progress.jpg" alt="Subject Progress" class="rounded-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="AttendSmartly" width="40">
+                <h3>AttendSmartly</h3>
+                <p>100% free, offline, and open-source.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/agupta07505/AttendSmartly" target="_blank">Source Code</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/blob/main/PRIVACY.md" target="_blank">Privacy Policy</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/blob/main/TERMS.md" target="_blank">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Animesh Gupta. Licensed under GNU GPL v3.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
