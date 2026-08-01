@@ -1,7 +1,7 @@
 import { inject } from "@vercel/analytics";
 inject();
 
-document.addEventListener('DOMContentLoaded', () => {
+
     // Intersection Observer for smooth scroll animations
     const observerOptions = {
         root: null,
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch and animate GitHub Download Count
     fetchGithubDownloads();
-});
+
 
 async function fetchGithubDownloads() {
     try {
