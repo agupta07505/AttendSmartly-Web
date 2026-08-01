@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agupta07505.github.io/AttendSmartly-Web/sitemap.xml

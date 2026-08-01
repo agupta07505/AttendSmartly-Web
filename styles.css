@@ -220,6 +220,41 @@ h1, h2, h3 {
 .hero-cta {
     display: flex;
     gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.downloads-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+}
+
+.download-icon {
+    font-size: 2rem;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.download-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.download-stats .count {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.download-stats .label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .hero-image-wrapper {

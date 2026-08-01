@@ -1,0 +1,31 @@
+{
+  "name": "attendsmartly-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agupta07505/AttendSmartly-Web.git"
+  },
+  "keywords": [
+    "attendance",
+    "tracker",
+    "bunk",
+    "calculator",
+    "timetable",
+    "android",
+    "attendsmartly"
+  ],
+  "author": "Animesh Gupta (https://github.com/agupta07505)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agupta07505/AttendSmartly-Web/issues"
+  },
+  "homepage": "https://github.com/agupta07505/AttendSmartly-Web#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}

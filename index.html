@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AttendSmartly | College Attendance Tracker & Bunk Calculator</title>
     <meta name="description" content="The ultimate open-source college attendance management, timetable builder, and safe bunk calculator for Android.">
+    <meta name="keywords" content="attendance tracker, college attendance app, bunk calculator, smart timetable, student attendance manager, AttendSmartly, AI timetable scanner, open source android app, safe bunk math">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -39,6 +40,13 @@
             <div class="hero-cta">
                 <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary">Download APK</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
+            </div>
+            <div class="downloads-counter glass fade-in delay-2">
+                <span class="download-icon">📦</span>
+                <div class="download-stats">
+                    <span id="download-count" class="count">...</span>
+                    <span class="label">Total Downloads</span>
+                </div>
             </div>
         </div>
         <div class="hero-image-wrapper glass">
@@ -117,6 +125,7 @@
             </div>
             <div class="footer-links">
                 <a href="https://github.com/agupta07505/AttendSmartly" target="_blank">Source Code</a>
+                <a href="https://linkedin.com/in/agupta07505" target="_blank">LinkedIn</a>
                 <a href="https://github.com/agupta07505/AttendSmartly/blob/main/PRIVACY.md" target="_blank">Privacy Policy</a>
                 <a href="https://github.com/agupta07505/AttendSmartly/blob/main/TERMS.md" target="_blank">Terms of Service</a>
             </div>
@@ -126,6 +135,13 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "@vercel/analytics": "./node_modules/@vercel/analytics/dist/index.mjs"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
