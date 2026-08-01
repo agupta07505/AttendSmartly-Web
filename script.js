@@ -1,32 +1,49 @@
-import { inject } from "@vercel/analytics";
-inject();
+// Safely inject Vercel Analytics when hosted on HTTP/HTTPS
+if (window.location.protocol.startsWith('http')) {
+    import('https://esm.sh/@vercel/analytics')
+        .then(({ inject }) => inject())
+        .catch(err => console.warn('Vercel Analytics load info:', err));
+}
 
-
-    // Intersection Observer for smooth scroll animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Select all elements that need animation
+function initAnimations() {
     const animatedElements = document.querySelectorAll('.fade-in, .slide-up');
-    animatedElements.forEach(el => {
-        observer.observe(el);
+    
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.05
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(el => observer.observe(el));
+    } else {
+        animatedElements.forEach(el => el.classList.add('visible'));
+    }
+
+    // Safety fallback: reveal all elements after 800ms regardless
+    setTimeout(() => {
+        animatedElements.forEach(el => el.classList.add('visible'));
+    }, 800);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initAnimations();
+        fetchGithubDownloads();
     });
-
-    // Fetch and animate GitHub Download Count
+} else {
+    initAnimations();
     fetchGithubDownloads();
-
+}
 
 async function fetchGithubDownloads() {
     try {
@@ -41,31 +58,29 @@ async function fetchGithubDownloads() {
             });
         });
 
-        // Add some artificial downloads to make the number look sweet for demo
-        // (Just kidding, we will use the actual number, or a fallback if 0 to show animation)
         totalDownloads = totalDownloads > 0 ? totalDownloads : 0; 
-        
         animateValue("download-count", 0, totalDownloads, 2000);
     } catch (error) {
         console.error("Error fetching downloads:", error);
-        document.getElementById("download-count").textContent = "N/A";
+        const countEl = document.getElementById("download-count");
+        if (countEl) countEl.textContent = "N/A";
     }
 }
 
 function animateValue(id, start, end, duration) {
+    const obj = document.getElementById(id);
+    if (!obj) return;
+
     if (start === end) {
-        document.getElementById(id).textContent = end;
+        obj.textContent = end;
         return;
     }
     
-    const obj = document.getElementById(id);
     let startTimestamp = null;
     
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        
-        // Easing function for sweet effect (easeOutExpo)
         const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
         
         obj.innerHTML = Math.floor(easeProgress * (end - start) + start).toLocaleString();

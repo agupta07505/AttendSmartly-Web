@@ -26,6 +26,8 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#calculator">Bunk Math</a>
+                <a href="#faq">FAQ</a>
+                <a href="#install">Install</a>
                 <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-outline">GitHub</a>
             </div>
         </div>
@@ -98,19 +100,94 @@
         </div>
     </section>
 
-    <!-- Bunk Math Section -->
+    <!-- Bunk & Recovery Math Section -->
     <section id="calculator" class="calculator section-padding">
         <div class="calculator-container glass fade-in">
             <div class="calc-text">
                 <h2>The Math Behind the Magic</h2>
-                <p>AttendSmartly uses precise formulas to compute your Safe Bunks and Recovery Classes. Cancelled classes are automatically excluded from conducted totals so your percentage remains perfectly accurate.</p>
-                <div class="formula-box">
-                    <strong>Safe Bunks Formula:</strong><br>
-                    <code>Floor( (Present - (Target * Total)) / Target )</code>
+                <p>AttendSmartly uses precise mathematical formulas to compute your Safe Bunks and Recovery Classes. Cancelled classes are automatically excluded from conducted totals so your percentage remains perfectly accurate.</p>
+                <div class="formula-grid">
+                    <div class="formula-box">
+                        <strong>🟢 Safe Bunks Formula</strong>
+                        <p class="formula-sub">Skip classes without dropping below target threshold (T)</p>
+                        <code>Floor( (Present - (Target * Total)) / Target )</code>
+                    </div>
+                    <div class="formula-box">
+                        <strong>🔴 Recovery Classes Formula</strong>
+                        <p class="formula-sub">Consecutive classes needed to restore low attendance</p>
+                        <code>Ceil( ((Target * Total) - Present) / (1 - Target) )</code>
+                    </div>
                 </div>
             </div>
             <div class="calc-image">
                  <img src="assets/screenshots/subject_wise_progress.jpg" alt="Subject Progress" class="rounded-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section-padding">
+        <div class="section-header fade-in">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about AttendSmartly</p>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item glass fade-in">
+                <summary>Is AttendSmartly completely free and offline?</summary>
+                <div class="faq-answer">
+                    <p>Yes! AttendSmartly is 100% free, open-source software licensed under GNU GPL v3. All attendance logs, timetables, and settings are stored locally on your device in an encrypted Room Database with zero telemetry or hidden tracking.</p>
+                </div>
+            </details>
+            <details class="faq-item glass fade-in">
+                <summary>How does the Safe Bunk & Recovery Calculator work?</summary>
+                <div class="faq-answer">
+                    <p>The safe bunk calculator evaluates your target percentage (e.g. 75%), your total present units, and total conducted units to compute exactly how many future classes you can safely skip or must attend consecutively to reach your goal.</p>
+                </div>
+            </details>
+            <details class="faq-item glass fade-in">
+                <summary>What happens if a teacher cancels a lecture?</summary>
+                <div class="faq-answer">
+                    <p>You can mark the session as <strong>Cancelled</strong>. Cancelled units are excluded from total conducted classes, ensuring your attendance percentage remains completely untouched.</p>
+                </div>
+            </details>
+            <details class="faq-item glass fade-in">
+                <summary>How do I use the Smart Timetable OCR Scanner?</summary>
+                <div class="faq-answer">
+                    <p>In the Timetable screen, select the OCR Scanner option and upload an image of your college timetable photo or PDF. You can optionally enter your personal free Google Gemini API key to automatically parse your schedule.</p>
+                </div>
+            </details>
+            <details class="faq-item glass fade-in">
+                <summary>Can I backup and export my attendance data?</summary>
+                <div class="faq-answer">
+                    <p>Yes! AttendSmartly allows you to export/import full offline JSON backups via Android Storage Access Framework (SAF), as well as generate detailed CSV reports for spreadsheet analysis or academic record-keeping.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Installation & Build Guide -->
+    <section id="install" class="install section-padding">
+        <div class="section-header fade-in">
+            <h2>Getting Started & Installation</h2>
+            <p>Download the ready-to-run APK or build directly from source code</p>
+        </div>
+        <div class="install-grid">
+            <div class="install-card glass fade-in">
+                <h3>Option 1: Direct APK Download</h3>
+                <ol class="install-steps">
+                    <li>Go to the <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank">GitHub Releases</a> page.</li>
+                    <li>Download the latest <code>AttendSmartly-Release.apk</code>.</li>
+                    <li>Install on any Android device running Android 7.0 (API 24) or higher.</li>
+                </ol>
+                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary btn-full">Download Latest APK</a>
+            </div>
+            <div class="install-card glass fade-in">
+                <h3>Option 2: Build from Source</h3>
+                <p class="req-text">Requires Android Studio Ladybug (2024.2.1+), JDK 17, SDK 34+</p>
+                <pre class="code-block"><code>git clone https://github.com/agupta07505/AttendSmartly.git
+cd AttendSmartly
+./gradlew assembleDebug</code></pre>
+                <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-secondary btn-full">View GitHub Repository</a>
             </div>
         </div>
     </section>
@@ -135,13 +212,6 @@
         </div>
     </footer>
 
-    <script type="importmap">
-        {
-            "imports": {
-                "@vercel/analytics": "./node_modules/@vercel/analytics/dist/index.mjs"
-            }
-        }
-    </script>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

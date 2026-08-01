@@ -334,12 +334,127 @@ h1, h2, h3 {
     align-items: center;
 }
 
-.formula-box {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(0,0,0,0.3);
+.formula-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.formula-sub {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0 0.5rem 0;
+}
+
+/* FAQ Accordion */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.faq-item summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Installation Guide */
+.install-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.install-card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.install-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.install-steps {
+    margin-left: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.install-steps code, .req-text {
+    color: var(--accent-primary);
+    font-size: 0.9rem;
+}
+
+.req-text {
+    margin-bottom: 1rem;
+}
+
+.code-block {
+    background: #050608;
+    padding: 1.2rem;
     border-radius: 8px;
-    border-left: 4px solid var(--accent-secondary);
+    border: 1px solid var(--glass-border);
+    color: #4ade80;
+    font-family: monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.btn-full {
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .install-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .formula-box code {
