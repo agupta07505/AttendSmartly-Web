@@ -92,7 +92,7 @@ async function fetchGithubReleaseAndDownloads() {
         const latestRes = await fetch('https://api.github.com/repos/agupta07505/AttendSmartly/releases/latest');
         if (latestRes.ok) {
             const latest = await latestRes.json();
-            const tagName = latest.tag_name || 'v1.2';
+            const tagName = latest.tag_name || 'v2.0';
             
             // Find APK asset
             let apkDownloadUrl = latest.html_url;

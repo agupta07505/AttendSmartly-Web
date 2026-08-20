@@ -61,8 +61,8 @@ body.no-scroll {
     left: -10vw;
     width: 45vw;
     height: 45vw;
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 280px;
+    min-height: 280px;
     background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
 }
 
@@ -71,8 +71,8 @@ body.no-scroll {
     right: -10vw;
     width: 50vw;
     height: 50vw;
-    min-width: 320px;
-    min-height: 320px;
+    min-width: 300px;
+    min-height: 300px;
     background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
 }
 
@@ -703,33 +703,64 @@ h1, h2, h3, h4 {
 /* Installation Guide */
 .install-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
     gap: 2rem;
     max-width: 1000px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .install-card {
-    padding: 2.2rem;
+    padding: 2.2rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 1.5rem;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.install-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.install-card-badge {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a5b4fc;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 .install-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     color: var(--text-primary);
+    word-break: break-word;
 }
 
 .install-steps {
-    margin-left: 1.25rem;
+    padding-left: 1.25rem;
+    margin: 0;
     color: var(--text-secondary);
     line-height: 1.8;
+    word-break: break-word;
 }
 
 .install-steps li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.install-steps li:last-child {
+    margin-bottom: 0;
 }
 
 .install-steps a {
@@ -745,18 +776,33 @@ h1, h2, h3, h4 {
 .install-steps code, .req-text {
     color: #a5b4fc;
     font-size: 0.9rem;
+    word-break: break-all;
+}
+
+.code-block-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
 }
 
 .code-block {
     background: #06070a;
-    padding: 1.2rem;
+    padding: 1.1rem;
     border-radius: var(--radius-sm);
     border: 1px solid var(--glass-border);
     color: #4ade80;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
     overflow-x: auto;
+    white-space: pre;
     line-height: 1.6;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.install-card-footer {
+    width: 100%;
+    margin-top: auto;
 }
 
 /* Footer */
@@ -912,6 +958,11 @@ h1, h2, h3, h4 {
 
     .install-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .install-card {
+        padding: 1.75rem 1.4rem;
     }
 
     .footer-content {
@@ -956,13 +1007,21 @@ h1, h2, h3, h4 {
         padding: 1.5rem 1.2rem;
     }
 
+    .install-grid {
+        gap: 1.25rem;
+    }
+
     .install-card {
-        padding: 1.5rem 1.2rem;
+        padding: 1.35rem 1.1rem;
+    }
+
+    .install-steps {
+        padding-left: 1.1rem;
+        font-size: 0.9rem;
     }
 
     .code-block {
-        font-size: 0.78rem;
-        padding: 0.9rem;
+        font-size: 0.75rem;
+        padding: 0.85rem;
     }
 }
-

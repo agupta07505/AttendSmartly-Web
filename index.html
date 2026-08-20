@@ -45,7 +45,7 @@
             <a href="#faq" class="mobile-nav-link">FAQ</a>
             <a href="#install" class="mobile-nav-link">Install</a>
             <div class="mobile-nav-cta">
-                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary btn-full">Download APK</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary btn-full">Download APK (v2.0)</a>
                 <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-secondary btn-full">GitHub Repo</a>
             </div>
         </div>
@@ -54,11 +54,11 @@
     <!-- Hero Section -->
     <section class="hero slide-up">
         <div class="hero-content">
-            <span class="badge">🚀 v1.2 • Open Source & 100% Offline-First</span>
+            <span class="badge">🚀 v2.0 • Open Source & 100% Offline-First</span>
             <h1 class="hero-title">Track classes. <br> Plan bunks. <br> <span class="gradient-text">Attend smartly.</span></h1>
             <p class="hero-subtitle">The ultimate college attendance management, smart timetable builder, and safe bunk calculator for Android.</p>
             <div class="hero-cta">
-                <a href="https://github.com/agupta07505/AttendSmartly/releases/download/v.1.1.0/app-release.apk" target="_blank" class="btn btn-primary">Download APK</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary">Download APK (v2.0)</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
             </div>
             <div class="downloads-counter glass fade-in delay-2">
@@ -79,23 +79,23 @@
         <div class="section-header fade-in">
             <span class="section-badge">Capabilities</span>
             <h2>Everything a student needs</h2>
-            <p>Crafted natively with Kotlin, Jetpack Compose, and Material Design 3.</p>
+            <p>Crafted natively with Kotlin 2.0, Jetpack Compose, and Material Design 3.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">📅</div>
                 <h3>Smart Timetable & Extra Classes</h3>
-                <p>Configure recurring weekly classes, customize multi-hour units, and schedule one-off extra classes anytime.</p>
+                <p>Configure recurring weekly classes, customize multi-hour units (e.g. 2-hr lab = 1 unit), and schedule one-off extra classes anytime.</p>
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">🔀</div>
                 <h3>Class Rescheduling</h3>
-                <p>Move classes to new dates and times with reason notes, visual notice cards, and one-tap instant revert.</p>
+                <p>Move classes to new dates and times with reason notes, visual notice cards, and one-tap instant revert capability.</p>
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">🎯</div>
-                <h3>Safe Bunk Calculator</h3>
-                <p>Calculates the exact number of upcoming classes you can safely skip while staying above your target percentage.</p>
+                <h3>Safe Bunk & Recovery Calculator</h3>
+                <p>Calculates the exact number of upcoming classes you can safely skip or must attend to maintain your target attendance percentage.</p>
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">📷</div>
@@ -104,13 +104,13 @@
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">📊</div>
-                <h3>Deep Analytics</h3>
-                <p>Interactive progress cards, subject-wise breakdown chips, and beautiful donut charts to visualize your attendance history.</p>
+                <h3>Deep Analytics & History</h3>
+                <p>Interactive progress cards, subject-wise breakdown chips, and beautiful donut charts with editable historical logs.</p>
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">⚙️</div>
                 <h3>Modular Settings & Backups</h3>
-                <p>6 dedicated sub-windows with preset chips, native DatePicker, and 100% roundtrip offline JSON backups.</p>
+                <p>6 dedicated sub-windows with preset chips, native DatePicker, and 100% roundtrip offline JSON backups and CSV reports.</p>
             </div>
         </div>
     </section>
@@ -234,21 +234,33 @@
         </div>
         <div class="install-grid">
             <div class="install-card glass fade-in">
-                <h3>Option 1: Direct APK Download</h3>
+                <div class="install-card-header">
+                    <span class="install-card-badge">Direct Install</span>
+                    <h3>Option 1: Download APK</h3>
+                </div>
                 <ol class="install-steps">
-                    <li>Go to the <a href="https://github.com/agupta07505/AttendSmartly/releases/download/v.1.1.0/app-release.apk" target="_blank">GitHub Releases</a> page.</li>
-                    <li>Download the latest <code>AttendSmartly-Release.apk</code>.</li>
+                    <li>Go to the <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank">GitHub Releases</a> page.</li>
+                    <li>Download the latest <code>AttendSmartly-Release.apk</code> (v2.0).</li>
                     <li>Install on any Android device running Android 7.0 (API 24) or higher.</li>
                 </ol>
-                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary btn-full">Download Latest APK</a>
+                <div class="install-card-footer">
+                    <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary btn-full">Download Latest APK (v2.0)</a>
+                </div>
             </div>
             <div class="install-card glass fade-in">
-                <h3>Option 2: Build from Source</h3>
+                <div class="install-card-header">
+                    <span class="install-card-badge">Developers</span>
+                    <h3>Option 2: Build from Source</h3>
+                </div>
                 <p class="req-text">Requires Android Studio Ladybug (2024.2.1+), JDK 17, SDK 34+</p>
-                <pre class="code-block"><code>git clone https://github.com/agupta07505/AttendSmartly.git
+                <div class="code-block-wrapper">
+                    <pre class="code-block"><code>git clone https://github.com/agupta07505/AttendSmartly.git
 cd AttendSmartly
 ./gradlew assembleDebug</code></pre>
-                <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-secondary btn-full">View GitHub Repository</a>
+                </div>
+                <div class="install-card-footer">
+                    <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-secondary btn-full">View GitHub Repository</a>
+                </div>
             </div>
         </div>
     </section>
