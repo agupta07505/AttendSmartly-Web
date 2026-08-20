@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>AttendSmartly | College Attendance Tracker & Bunk Calculator</title>
     <meta name="description" content="The ultimate open-source college attendance management, timetable builder, and safe bunk calculator for Android.">
     <meta name="keywords" content="attendance tracker, college attendance app, bunk calculator, smart timetable, student attendance manager, AttendSmartly, AI timetable scanner, open source android app, safe bunk math">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/logo.png">
 </head>
@@ -25,10 +25,28 @@
             </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#showcase">Screenshots</a>
                 <a href="#calculator">Bunk Math</a>
                 <a href="#faq">FAQ</a>
                 <a href="#install">Install</a>
                 <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-outline">GitHub</a>
+            </div>
+            <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#features" class="mobile-nav-link">Features</a>
+            <a href="#showcase" class="mobile-nav-link">Screenshots</a>
+            <a href="#calculator" class="mobile-nav-link">Bunk Math</a>
+            <a href="#faq" class="mobile-nav-link">FAQ</a>
+            <a href="#install" class="mobile-nav-link">Install</a>
+            <div class="mobile-nav-cta">
+                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary btn-full">Download APK</a>
+                <a href="https://github.com/agupta07505/AttendSmartly" target="_blank" class="btn btn-secondary btn-full">GitHub Repo</a>
             </div>
         </div>
     </nav>
@@ -36,9 +54,9 @@
     <!-- Hero Section -->
     <section class="hero slide-up">
         <div class="hero-content">
-            <span class="badge">Open Source & Offline-First</span>
+            <span class="badge">🚀 v1.2 • Open Source & 100% Offline-First</span>
             <h1 class="hero-title">Track classes. <br> Plan bunks. <br> <span class="gradient-text">Attend smartly.</span></h1>
-            <p class="hero-subtitle">The ultimate college attendance management, timetable builder, and safe bunk calculator for Android.</p>
+            <p class="hero-subtitle">The ultimate college attendance management, smart timetable builder, and safe bunk calculator for Android.</p>
             <div class="hero-cta">
                 <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank" class="btn btn-primary">Download APK</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
@@ -52,21 +70,27 @@
             </div>
         </div>
         <div class="hero-image-wrapper glass">
-            <img src="assets/screenshots/home_dashboard.jpg" alt="AttendSmartly Home Screen" class="hero-image">
+            <img src="assets/screenshots/home_dashboard.jpg" alt="AttendSmartly Home Screen Dashboard" class="hero-image">
         </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features section-padding">
         <div class="section-header fade-in">
+            <span class="section-badge">Capabilities</span>
             <h2>Everything a student needs</h2>
-            <p>Designed beautifully using Jetpack Compose and Material Design 3.</p>
+            <p>Crafted natively with Kotlin, Jetpack Compose, and Material Design 3.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">📅</div>
-                <h3>Smart Timetable</h3>
-                <p>Configure recurring daily classes with custom unit values. Real-world college classes aren't always 1 hour long.</p>
+                <h3>Smart Timetable & Extra Classes</h3>
+                <p>Configure recurring weekly classes, customize multi-hour units, and schedule one-off extra classes anytime.</p>
+            </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">🔀</div>
+                <h3>Class Rescheduling</h3>
+                <p>Move classes to new dates and times with reason notes, visual notice cards, and one-tap instant revert.</p>
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">🎯</div>
@@ -76,27 +100,55 @@
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">📷</div>
                 <h3>AI OCR Scanner</h3>
-                <p>Powered by Google Gemini Vision. Simply snap a photo of your college timetable to automatically parse and import your schedule.</p>
+                <p>Powered by Google Gemini Vision. Simply photograph your timetable to automatically parse and import your weekly schedule.</p>
             </div>
             <div class="feature-card glass fade-in">
                 <div class="feature-icon">📊</div>
                 <h3>Deep Analytics</h3>
                 <p>Interactive progress cards, subject-wise breakdown chips, and beautiful donut charts to visualize your attendance history.</p>
             </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">⚙️</div>
+                <h3>Modular Settings & Backups</h3>
+                <p>6 dedicated sub-windows with preset chips, native DatePicker, and 100% roundtrip offline JSON backups.</p>
+            </div>
         </div>
     </section>
 
     <!-- Showcase Section -->
-    <section class="showcase section-padding">
+    <section id="showcase" class="showcase section-padding">
         <div class="section-header fade-in">
+            <span class="section-badge">Gallery</span>
             <h2>Beautifully Crafted</h2>
-            <p>A sleek interface that respects your system's dark and light modes.</p>
+            <p>A sleek, fluid interface tailored for light and dark modes.</p>
         </div>
-        <div class="showcase-scroll">
-            <img src="assets/screenshots/weekly_timetable.jpg" alt="Timetable" class="showcase-img slide-up">
-            <img src="assets/screenshots/attendance_analytics.jpg" alt="Analytics" class="showcase-img slide-up delay-1">
-            <img src="assets/screenshots/subject_details.jpg" alt="Subject Details" class="showcase-img slide-up delay-2">
-            <img src="assets/screenshots/ai_timetable_scanner.jpg" alt="OCR Scanner" class="showcase-img slide-up delay-3">
+        <div class="showcase-container">
+            <div class="showcase-scroll">
+                <div class="showcase-card slide-up">
+                    <img src="assets/screenshots/home_dashboard.jpg" alt="Home & Speed Dial" class="showcase-img">
+                    <span class="showcase-label">Home & Speed Dial</span>
+                </div>
+                <div class="showcase-card slide-up delay-1">
+                    <img src="assets/screenshots/reschedule_class.jpg" alt="Class Rescheduling" class="showcase-img">
+                    <span class="showcase-label">Class Rescheduling</span>
+                </div>
+                <div class="showcase-card slide-up delay-2">
+                    <img src="assets/screenshots/weekly_timetable.jpg" alt="Weekly Timetable" class="showcase-img">
+                    <span class="showcase-label">Weekly Timetable</span>
+                </div>
+                <div class="showcase-card slide-up delay-3">
+                    <img src="assets/screenshots/attendance_analytics.jpg" alt="Attendance Analytics" class="showcase-img">
+                    <span class="showcase-label">Attendance Analytics</span>
+                </div>
+                <div class="showcase-card slide-up delay-4">
+                    <img src="assets/screenshots/subject_details.jpg" alt="Subject Details" class="showcase-img">
+                    <span class="showcase-label">Subject Details</span>
+                </div>
+                <div class="showcase-card slide-up delay-5">
+                    <img src="assets/screenshots/settings_overview.jpg" alt="Modular Settings" class="showcase-img">
+                    <span class="showcase-label">Modular Settings</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -104,6 +156,7 @@
     <section id="calculator" class="calculator section-padding">
         <div class="calculator-container glass fade-in">
             <div class="calc-text">
+                <span class="section-badge">Math Engine</span>
                 <h2>The Math Behind the Magic</h2>
                 <p>AttendSmartly uses precise mathematical formulas to compute your Safe Bunks and Recovery Classes. Cancelled classes are automatically excluded from conducted totals so your percentage remains perfectly accurate.</p>
                 <div class="formula-grid">
@@ -128,6 +181,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="faq section-padding">
         <div class="section-header fade-in">
+            <span class="section-badge">Common Questions</span>
             <h2>Frequently Asked Questions</h2>
             <p>Everything you need to know about AttendSmartly</p>
         </div>
@@ -145,6 +199,12 @@
                 </div>
             </details>
             <details class="faq-item glass fade-in">
+                <summary>How does Class Rescheduling and Extra Classes work?</summary>
+                <div class="faq-answer">
+                    <p>You can reschedule any class session from the Home screen speed dial or class card menu to a new date and time with reason notes. The app displays an incoming notice on the new date and allows you to revert anytime. You can also add one-off extra classes without modifying your regular weekly timetable.</p>
+                </div>
+            </details>
+            <details class="faq-item glass fade-in">
                 <summary>What happens if a teacher cancels a lecture?</summary>
                 <div class="faq-answer">
                     <p>You can mark the session as <strong>Cancelled</strong>. Cancelled units are excluded from total conducted classes, ensuring your attendance percentage remains completely untouched.</p>
@@ -159,7 +219,7 @@
             <details class="faq-item glass fade-in">
                 <summary>Can I backup and export my attendance data?</summary>
                 <div class="faq-answer">
-                    <p>Yes! AttendSmartly allows you to export/import full offline JSON backups via Android Storage Access Framework (SAF), as well as generate detailed CSV reports for spreadsheet analysis or academic record-keeping.</p>
+                    <p>Yes! AttendSmartly allows you to export/import full offline JSON backups via Android Storage Access Framework (SAF) with 100% roundtrip fidelity, as well as generate detailed CSV reports for spreadsheet analysis or academic record-keeping.</p>
                 </div>
             </details>
         </div>
@@ -168,6 +228,7 @@
     <!-- Installation & Build Guide -->
     <section id="install" class="install section-padding">
         <div class="section-header fade-in">
+            <span class="section-badge">Get Started</span>
             <h2>Getting Started & Installation</h2>
             <p>Download the ready-to-run APK or build directly from source code</p>
         </div>
@@ -196,15 +257,23 @@ cd AttendSmartly
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <img src="assets/logo.png" alt="AttendSmartly" width="40">
-                <h3>AttendSmartly</h3>
-                <p>100% free, offline, and open-source.</p>
+                <div class="footer-brand-header">
+                    <img src="assets/logo.png" alt="AttendSmartly Logo" width="36" height="36">
+                    <h3>AttendSmartly</h3>
+                </div>
+                <p>100% free, offline, and open-source college attendance management.</p>
             </div>
             <div class="footer-links">
+                <h4>Project</h4>
                 <a href="https://github.com/agupta07505/AttendSmartly" target="_blank">Source Code</a>
-                <a href="https://linkedin.com/in/agupta07505" target="_blank">LinkedIn</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/releases" target="_blank">Releases</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/blob/main/CHANGELOG.md" target="_blank">Changelog</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal & Info</h4>
                 <a href="https://github.com/agupta07505/AttendSmartly/blob/main/PRIVACY.md" target="_blank">Privacy Policy</a>
                 <a href="https://github.com/agupta07505/AttendSmartly/blob/main/TERMS.md" target="_blank">Terms of Service</a>
+                <a href="https://github.com/agupta07505/AttendSmartly/blob/main/LICENSE" target="_blank">GNU GPL-3.0 License</a>
             </div>
         </div>
         <div class="footer-bottom">

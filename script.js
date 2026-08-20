@@ -35,17 +35,93 @@ function initAnimations() {
     }, 800);
 }
 
+function initMobileMenu() {
+    const toggleBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const navLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta a');
+
+    if (!toggleBtn || !mobileNav) return;
+
+    function toggleMenu(forceClose = false) {
+        const isOpen = forceClose ? false : !mobileNav.classList.contains('active');
+        toggleBtn.classList.toggle('active', isOpen);
+        mobileNav.classList.toggle('active', isOpen);
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('no-scroll', isOpen);
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMenu(true);
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !toggleBtn.contains(e.target)) {
+            toggleMenu(true);
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+            toggleMenu(true);
+        }
+    });
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initAnimations();
-        fetchGithubDownloads();
+        initMobileMenu();
+        fetchGithubReleaseAndDownloads();
     });
 } else {
     initAnimations();
-    fetchGithubDownloads();
+    initMobileMenu();
+    fetchGithubReleaseAndDownloads();
 }
 
-async function fetchGithubDownloads() {
+async function fetchGithubReleaseAndDownloads() {
+    // 1. Fetch Latest Release for direct APK download buttons
+    try {
+        const latestRes = await fetch('https://api.github.com/repos/agupta07505/AttendSmartly/releases/latest');
+        if (latestRes.ok) {
+            const latest = await latestRes.json();
+            const tagName = latest.tag_name || 'v1.2';
+            
+            // Find APK asset
+            let apkDownloadUrl = latest.html_url;
+            let apkSizeMb = '';
+            if (latest.assets && latest.assets.length > 0) {
+                const apkAsset = latest.assets.find(a => a.name.endsWith('.apk'));
+                if (apkAsset) {
+                    apkDownloadUrl = apkAsset.browser_download_url;
+                    if (apkAsset.size) {
+                        apkSizeMb = ` (${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB)`;
+                    }
+                }
+            }
+
+            // Update all download buttons
+            const downloadButtons = document.querySelectorAll('a[href*="releases"]');
+            downloadButtons.forEach(btn => {
+                if (btn.classList.contains('btn-primary')) {
+                    btn.href = apkDownloadUrl;
+                    btn.innerHTML = `Download APK <span style="font-size: 0.85em; opacity: 0.9;">(${tagName}${apkSizeMb})</span>`;
+                    btn.setAttribute('download', '');
+                }
+            });
+        }
+    } catch (e) {
+        console.warn('Could not fetch latest release asset:', e);
+    }
+
+    // 2. Fetch All Releases for Total Downloads Count
     try {
         const response = await fetch('https://api.github.com/repos/agupta07505/AttendSmartly/releases');
         if (!response.ok) throw new Error('Network response was not ok');
@@ -53,9 +129,11 @@ async function fetchGithubDownloads() {
         
         let totalDownloads = 0;
         releases.forEach(release => {
-            release.assets.forEach(asset => {
-                totalDownloads += asset.download_count;
-            });
+            if (release.assets) {
+                release.assets.forEach(asset => {
+                    totalDownloads += (asset.download_count || 0);
+                });
+            }
         });
 
         totalDownloads = totalDownloads > 0 ? totalDownloads : 0; 
@@ -72,7 +150,7 @@ function animateValue(id, start, end, duration) {
     if (!obj) return;
 
     if (start === end) {
-        obj.textContent = end;
+        obj.textContent = end.toLocaleString();
         return;
     }
     
