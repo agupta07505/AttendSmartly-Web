@@ -129,11 +129,11 @@ async function fetchGithubReleaseAndDownloads() {
         
         let totalDownloads = 0;
         releases.forEach(release => {
-            if (release.assets) {
-                release.assets.forEach(asset => {
-                    totalDownloads += (asset.download_count || 0);
-                });
-            }
+if (release.assets) {
+    release.assets.forEach(asset => {
+        totalDownloads += (asset.download_count || 0);
+    });
+}
         });
 
         totalDownloads = totalDownloads > 0 ? totalDownloads : 0; 
